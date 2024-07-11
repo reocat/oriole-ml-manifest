@@ -1,104 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-
+  <!-- AOSP -->
   <remote  name="aosp"
-    fetch="https://android.googlesource.com/" />
-  <remote name="hentai"
-    fetch="https://gitlab.hentaios.com/hentaios-gs/"
-    revision="refs/heads/Ursamoon" />
-  <default revision="refs/tags/android-u-qpr3-beta-2_r0.8"
-    remote="aosp" sync-j="4" />
-
-  <project path="aosp" name="kernel_common" groups="partner" remote="hentai" />
-  <project path="private/google-modules/soc/gs" name="google-modules_soc_gs" groups="partner" remote="hentai" >
-    <linkfile dest="WORKSPACE" src="bazel.WORKSPACE"/>
-    <linkfile dest="device.bazelrc" src="device.bazelrc"/>
-    <linkfile dest="update_symbol_list.sh" src="update_symbol_list.sh"/>
+           fetch="https://android.googlesource.com/"
+           review="https://android-review.googlesource.com/"/>
+  <!-- GitHub -->
+  <remote  name="github"
+           fetch="https://github.com/" />
+  <default remote="aosp" revision="android-gs-raviole-mainline" sync-j="4"/>
+  <superproject name="kernel/superproject" revision="gs-android-gs-raviole-mainline"/>
+  <project name="kernel/build" path="build/kernel" revision="5733bb63c63c270ea71e6409ca2d8f15bf0a099e" >
+    <linkfile src="kleaf/bazel.sh" dest="tools/bazel"/>
+    <linkfile src="kleaf/bzlmod/bazel.MODULE.bazel" dest="MODULE.bazel"/>
   </project>
-  <project path="private/devices/google/shusky" name="kernel/devices/google/shusky" groups="partner,shusky" >
-    <linkfile dest="build_shusky.sh" src="build_shusky.sh"/>
-    <linkfile dest="private/google-modules/soc/gs/arch/arm64/boot/dts/google/devices/shusky" src="dts/google"/>
-    <linkfile dest=".d1.bazelrc" src="device.bazelrc"/>
+  <project name="reocat/kernel_common" path="common" revision="android15-6.6" remote="github" />
+  <project name="kernel/configs" revision="7de932a4b942d7e7677b0116a2e257e050163bb9" />
+  <project name="kernel/google-modules/amplifiers" path="private/google-modules/amplifiers" />
+  <project name="kernel/google-modules/aoc" path="private/google-modules/aoc" />
+  <project name="kernel/google-modules/aoc-ipc" path="private/google-modules/aoc_ipc" />
+  <project name="kernel/google-modules/bluetooth/broadcom" path="private/google-modules/bluetooth/broadcom" />
+  <project name="kernel/google-modules/bms" path="private/google-modules/bms" />
+  <project name="kernel/google-modules/display" path="private/google-modules/display" />
+  <project name="kernel/google-modules/edgetpu/abrolhos" path="private/google-modules/edgetpu/abrolhos" />
+  <project name="kernel/google-modules/gpu" path="private/google-modules/gpu" />
+  <project name="kernel/google-modules/lwis" path="private/google-modules/lwis" />
+  <project name="kernel/google-modules/nfc" path="private/google-modules/nfc" />
+  <project name="kernel/google-modules/power/reset" path="private/google-modules/power/reset" />
+  <project name="kernel/google-modules/raviole-device" path="private/google-modules/soc/gs" >
+    <linkfile src="build_slider.sh" dest="build_slider.sh"/>
+    <linkfile src="device.bazelrc" dest="device.bazelrc"/>
   </project>
-  <project path="private/devices/google/slider" name="kernel_devices_google_slider" groups="partner,slider" remote="hentai" >
-    <linkfile dest="build_slider.sh" src="build_slider.sh"/>
-    <linkfile dest="private/google-modules/soc/gs/arch/arm64/boot/dts/google/devices/slider" src="dts/google"/>
-    <linkfile dest=".d2.bazelrc" src="device.bazelrc"/>
-  </project>
-  <project path="private/devices/google/bluejay" name="kernel_devices_google_bluejay" groups="partner,slider" remote="hentai" >
-    <linkfile dest="build_bluejay.sh" src="build_bluejay.sh"/>
-    <linkfile dest="private/google-modules/soc/gs/arch/arm64/boot/dts/google/devices/bluejay" src="dts/google"/>
-    <linkfile dest=".d3.bazelrc" src="device.bazelrc"/>
-  </project>
-  <project path="private/devices/google/cloudripper" name="kernel_devices_google_cloudripper" groups="partner,cloudripper" remote="hentai" >
-    <linkfile dest="build_cloudripper.sh" src="build_cloudripper.sh"/>
-    <linkfile dest="private/google-modules/soc/gs/arch/arm64/boot/dts/google/devices/cloudripper" src="dts/google"/>
-    <linkfile dest=".d4.bazelrc" src="device.bazelrc"/>
-  </project>
-  <project path="private/devices/google/lynx" name="kernel_devices_google_lynx" groups="partner,cloudripper" remote="hentai" >
-    <linkfile dest="build_lynx.sh" src="build_lynx.sh"/>
-    <linkfile dest="private/google-modules/soc/gs/arch/arm64/boot/dts/google/devices/lynx" src="dts/google"/>
-    <linkfile dest=".d5.bazelrc" src="device.bazelrc"/>
-  </project>
-  <project path="private/google-modules/amplifiers" name="google-modules_amplifiers" groups="partner" remote="hentai" />
-  <project path="private/google-modules/aoc" name="google-modules_aoc" groups="partner" remote="hentai" />
-  <project path="private/google-modules/aoc_ipc" name="kernel/google-modules/aoc-ipc" groups="partner" />
-  <project path="private/google-modules/bluetooth/qcom" name="google-modules_bluetooth_qcom" groups="partner" remote="hentai" />
-  <project path="private/google-modules/bluetooth/broadcom" name="kernel/google-modules/bluetooth/broadcom" groups="partner" />
-  <project path="private/google-modules/bms" name="google-modules_bms" groups="partner" remote="hentai" />
-  <project path="private/google-modules/display" name="google-modules_display" groups="partner" remote="hentai" />
-  <project path="private/google-modules/edgetpu/abrolhos" name="google-modules_edgetpu_abrolhos" groups="partner" remote="hentai" />
-  <project path="private/google-modules/edgetpu/janeiro" name="google-modules_edgetpu_janeiro" groups="partner" remote="hentai" />
-  <project path="private/google-modules/edgetpu/rio" name="kernel/google-modules/edgetpu/rio" groups="partner" />
-  <project path="private/google-modules/gps/broadcom/bcm47765" name="kernel/google-modules/gps/broadcom/bcm47765" groups="partner" />
-  <project path="private/google-modules/gpu" name="google-modules_gpu" groups="partner" remote="hentai" />
-  <project path="private/google-modules/gxp/gs201" name="google-modules_gxp_gs201" groups="partner" remote="hentai" />
-  <project path="private/google-modules/gxp/zuma" name="kernel/google-modules/gxp/zuma" groups="partner" />
-  <project path="private/google-modules/hdcp/samsung" name="kernel/google-modules/hdcp/samsung" groups="partner" />
-  <project path="private/google-modules/lwis" name="kernel/google-modules/lwis" groups="partner" />
-  <project path="private/google-modules/power/reset" name="google-modules_power_reset" groups="partner" remote="hentai" />
-  <project path="private/google-modules/sensors/hall_sensor" name="kernel/google-modules/sensors/hall_sensor" groups="partner" />
-  <project path="private/google-modules/touch/common" name="kernel/google-modules/touch/common" groups="partner" />
-  <project path="private/google-modules/touch/focaltech" name="google-modules_touch_focaltech_touch" groups="partner" remote="hentai" />
-  <project path="private/google-modules/touch/fts" name="google-modules_touch_fts" groups="partner" remote="hentai" />
-  <project path="private/google-modules/touch/goodix" name="kernel/google-modules/touch/goodix_touch" groups="partner" />
-  <project path="private/google-modules/touch/sec" name="kernel/google-modules/touch/sec_touch" groups="partner" />
-  <project path="private/google-modules/touch/synaptics" name="google-modules_touch_synaptics" groups="partner" remote="hentai" />
-  <project path="private/google-modules/trusty" name="kernel/google-modules/trusty" groups="partner" />
-  <project path="private/google-modules/uwb/qorvo/dw3000" name="google-modules_uwb_qorvo_dw3000" groups="partner" remote="hentai" />
-  <project path="private/google-modules/uwb/qorvo/qm35" name="kernel/google-modules/uwb/qorvo/qm35" groups="partner" />
-  <project path="private/google-modules/video/gchips" name="google-modules_video_gchips" groups="partner" remote="hentai" />
-  <project path="private/google-modules/nfc" name="kernel/google-modules/nfc" groups="partner" />
-  <project path="private/google-modules/wlan/bcm4389" name="google-modules_wlan_bcmdhd_bcm4389" groups="partner" remote="hentai" />
-  <project path="private/google-modules/wlan/bcm4398" name="kernel/google-modules/wlan/bcmdhd/bcm4398" groups="partner" />
-  <project path="private/google-modules/wlan/wlan_ptracker" name="kernel/google-modules/wlan/wlan_ptracker" groups="partner" />
-  <project path="private/google-modules/wlan/wcn6740/cnss2" name="google-modules_wlan_qcom_wcn6740_cnss2" groups="partner" remote="hentai"  />
-  <project path="private/google-modules/wlan/wcn6740/wlan" name="google-modules_wlan_qcom_wcn6740_wlan" groups="partner" remote="hentai" />
-  <project path="build/kernel" name="kernel/build" groups="partner" >
-    <linkfile dest="tools/bazel" src="kleaf/bazel.sh"/>
-    <linkfile dest="build/build.sh" src="build.sh"/>
-    <linkfile dest="build/build_abi.sh" src="build_abi.sh"/>
-    <linkfile dest="build/build_test.sh" src="build_test.sh"/>
-    <linkfile dest="build/build_utils.sh" src="build_utils.sh"/>
-    <linkfile dest="build/config.sh" src="config.sh"/>
-    <linkfile dest="build/envsetup.sh" src="envsetup.sh"/>
-    <linkfile dest="build/_setup_env.sh" src="_setup_env.sh"/>
-    <linkfile dest="build/multi-switcher.sh" src="multi-switcher.sh"/>
-    <linkfile dest="build/abi" src="abi"/>
-    <linkfile dest="build/static_analysis" src="static_analysis"/>
-  </project>
-  <project path="kernel/configs" name="kernel/configs" />
-  <project path="prebuilts/clang/host/linux-x86" name="platform/prebuilts/clang/host/linux-x86" clone-depth="1" />
-  <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" groups="partner" clone-depth="1" />
-  <project path="prebuilts/boot-artifacts" name="platform/prebuilts/boot-artifacts" groups="partner" clone-depth="1" />
-  <project path="prebuilts/build-tools" name="platform/prebuilts/build-tools" groups="partner" clone-depth="1" />
-  <project path="prebuilts/kernel-build-tools" name="kernel/prebuilts/build-tools" groups="partner" clone-depth="1" />
-  <project path="tools/mkbootimg" name="platform/system/tools/mkbootimg" groups="partner" />
-  <project path="build/bazel_common_rules" name="platform/build/bazel_common_rules" groups="partner" />
-  <project path="external/bazel-skylib" name="platform/external/bazel-skylib" groups="partner" />
-  <project path="external/python/absl-py" name="platform/external/python/absl-py" groups="partner" />
-  <project path="external/stardoc" name="platform/external/stardoc" groups="partner" />
-  <project path="prebuilts/bazel/linux-x86_64" name="platform/prebuilts/bazel/linux-x86_64" groups="partner" />
-  <project path="prebuilts/jdk/jdk11" name="platform/prebuilts/jdk/jdk11" />
-  <project path="prebuilts/ndk-r23" name="toolchain/prebuilts/ndk/r23" groups="partner" />
+  <project name="kernel/google-modules/touch/common" path="private/google-modules/touch/common" />
+  <project name="kernel/google-modules/touch/fts_touch" path="private/google-modules/touch/fts" />
+  <project name="kernel/google-modules/touch/sec_touch" path="private/google-modules/touch/sec" />
+  <project name="kernel/google-modules/trusty" path="private/google-modules/trusty" />
+  <project name="kernel/google-modules/uwb" path="private/google-modules/uwb" />
+  <project name="kernel/google-modules/video/gchips" path="private/google-modules/video/gchips" />
+  <project name="kernel/google-modules/wlan/bcmdhd/bcm4389" path="private/google-modules/wlan/bcmdhd4389" />
+  <project name="platform/prebuilts/boot-artifacts" path="prebuilts/boot-artifacts" clone-depth="1"/>
+  <project name="kernel/prebuilts/build-tools" path="prebuilts/kernel-build-tools" revision="30e9944f67e1ec4b9236b55060558a43a049c5c4" clone-depth="1"/>
+  <project name="platform/build/bazel_common_rules" path="build/bazel_common_rules" revision="212bca45fa9e280adc98081483f649814baf4b61" />
+  <project name="platform/external/bazel-skylib" path="external/bazel-skylib" revision="6b103c40d8113f001475d5e13672922ef2aa0e5a" clone-depth="1"/>
+  <project name="platform/external/bazelbuild-apple_support" path="external/bazelbuild-apple_support" revision="f6003e1e3763f8aad9fb9acae79cfa5fff9ae988" clone-depth="1"/>
+  <project name="platform/external/bazelbuild-bazel-central-registry" path="external/bazelbuild-bazel-central-registry" revision="3422f064566c274ea66633442521704d4a22486d" clone-depth="1"/>
+  <project name="platform/external/bazelbuild-platforms" path="external/bazelbuild-platforms" revision="e352aabd0131f3ac3f340282a43ba85ffc3fe8fa" clone-depth="1"/>
+  <project name="platform/external/bazelbuild-rules_cc" path="external/bazelbuild-rules_cc" revision="5d626dcf48e0e97933b48456a86966971799c9e9" clone-depth="1"/>
+  <project name="platform/external/bazelbuild-rules_java" path="external/bazelbuild-rules_java" revision="8e548c7053dffd1717d565f0409a88992f401da1" clone-depth="1"/>
+  <project name="platform/external/bazelbuild-rules_license" path="external/bazelbuild-rules_license" revision="f578df4fd057ffe2023728444759535685631548" clone-depth="1"/>
+  <project name="platform/external/bazelbuild-rules_pkg" path="external/bazelbuild-rules_pkg" revision="632ab98c81cf295750dc096142d4ca76264084bc" clone-depth="1"/>
+  <project name="platform/external/bazelbuild-rules_python" path="external/bazelbuild-rules_python" revision="f71847ac898655b67634bb14e77a7408c4fb5e00" clone-depth="1"/>
+  <project name="platform/external/bazelbuild-rules_rust" path="external/bazelbuild-rules_rust" revision="1520b49835be9122c2424231357d4db80069cc38" clone-depth="1"/>
+  <project name="platform/external/libcap" path="external/libcap" revision="8729338c078737da57a8b63ee88016799dfb4cdb" clone-depth="1"/>
+  <project name="platform/external/libcap-ng" path="external/libcap-ng" revision="2bcc92ae19481dd2b8d3ce3abdfbbee49261abe6" clone-depth="1"/>
+  <project name="platform/external/pigz" path="external/pigz" revision="9bc9fa17d499ddde88b77820f6d063e16c0cdd42" clone-depth="1"/>
+  <project name="platform/external/python/absl-py" path="external/python/absl-py" revision="9ae5a78fc57c3cd539398373ae39601a8b923e62" clone-depth="1"/>
+  <project name="platform/external/stardoc" path="external/stardoc" revision="f31250f9f5b03834d9964aaee7a3794c1d73d4a2" clone-depth="1"/>
+  <project name="platform/external/zlib" path="external/zlib" revision="b34cd2e4371556e913ad9801a924a891c74d1463" clone-depth="1"/>
+  <project name="platform/external/zopfli" path="external/zopfli" revision="36c79f00e5229800d2aaa13fc42c301ec8ef1153" clone-depth="1"/>
+  <project name="platform/prebuilts/bazel/linux-x86_64" path="prebuilts/bazel/linux-x86_64" revision="5c92123af5646d469fc53ef61994f5bca0306f66" clone-depth="1"/>
+  <project name="platform/prebuilts/build-tools" path="prebuilts/build-tools" revision="5c0b50c49d7c958c05cd3050e43f4772003df800" clone-depth="1"/>
+  <project name="platform/prebuilts/clang-tools" path="prebuilts/clang-tools" revision="1634c6a556d1f2c24897bf74156c6449486e8941" clone-depth="1"/>
+  <project name="platform/prebuilts/clang/host/linux-x86" path="prebuilts/clang/host/linux-x86" revision="09c7583143309378bfb91ee54174c87da496b6ab" clone-depth="1"/>
+  <project name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" revision="739d8a41b6096d384338a62995a04739aff8693d" clone-depth="1"/>
+  <project name="platform/prebuilts/jdk/jdk11" path="prebuilts/jdk/jdk11" revision="c6c90521b7c317f13d41bbd9336a8d45ee202cec" clone-depth="1"/>
+  <project name="platform/prebuilts/misc" path="prebuilts/misc" revision="9069413f024ef9fbdf6cb78b6afe82e76cf7027d" clone-depth="1"/>
+  <project name="platform/prebuilts/rust" path="prebuilts/rust" revision="e726db6bc2f2ca22326f58a49ad7f1c28c8a64ea" clone-depth="1"/>
+  <project name="platform/system/tools/mkbootimg" path="tools/mkbootimg" revision="f5c284e8998dd8a085cf027bb518b6c2b84cf744" clone-depth="1"/>
+  <project name="toolchain/prebuilts/ndk/r26" path="prebuilts/ndk-r26" revision="e535051ebc04204cec44bde38f62385d63180388" clone-depth="1"/>
 </manifest>
