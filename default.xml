@@ -10,7 +10,7 @@
     fetch="https://android.googlesource.com/" />
   <default revision="android-gs-raviole-5.10-android14-qpr3"
     remote="aosp" sync-j="4" />
-  <project path="aosp" name="Qiiks/Gsapatch" revision="android-gs-bluraviole-5.10-android14-qpr2-monolithic" remote="gitlab" />
+  <project path="aosp" name="Qiiks/Gsapatch" revision="android-gs-bluraviole-5.10-android14-qpr2-monolithic" remote="gitlab" clone-depth="2" />
   <project path="private/gs-google" name="kernel/gs" groups="partner" >
     <linkfile dest="build.config" src="build.config.slider"/>
     <linkfile dest="build_slider.sh" src="build_slider.sh"/>
