@@ -9,7 +9,7 @@
            fetch="https://github.com/" />
   <default remote="aosp" revision="android-gs-raviole-mainline" sync-j="4"/>
   <superproject name="kernel/superproject" revision="gs-android-gs-raviole-mainline"/>
-  <project name="kernel/build" path="build/kernel" revision="5733bb63c63c270ea71e6409ca2d8f15bf0a099e" >
+  <project name="reocat/android_kernel_build" path="build/kernel" revision="main" remote="github" >
     <linkfile src="kleaf/bazel.sh" dest="tools/bazel"/>
     <linkfile src="kleaf/bzlmod/bazel.MODULE.bazel" dest="MODULE.bazel"/>
   </project>
