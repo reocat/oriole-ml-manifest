@@ -13,7 +13,7 @@
     <linkfile src="kleaf/bazel.sh" dest="tools/bazel"/>
     <linkfile src="kleaf/bzlmod/bazel.MODULE.bazel" dest="MODULE.bazel"/>
   </project>
-  <project name="reocat/kernel_common" path="common" revision="android15-6.6" remote="github" />
+  <project name="reocat/kernel_common" path="common" revision="android15-6.6" remote="github" clone-depth="2" />
   <project name="kernel/configs" revision="7de932a4b942d7e7677b0116a2e257e050163bb9" />
   <project name="kernel/google-modules/amplifiers" path="private/google-modules/amplifiers" />
   <project name="kernel/google-modules/aoc" path="private/google-modules/aoc" />
