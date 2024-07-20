@@ -74,7 +74,7 @@
   <project path="private/google-modules/wlan/wlan_ptracker" name="kernel/google-modules/wlan/wlan_ptracker" groups="partner" />
   <project path="private/google-modules/wlan/wcn6740/cnss2" name="google-modules_wlan_qcom_wcn6740_cnss2" groups="partner" remote="hentai"  />
   <project path="private/google-modules/wlan/wcn6740/wlan" name="google-modules_wlan_qcom_wcn6740_wlan" groups="partner" remote="hentai" />
-  <project path="build/kernel" name="kernel/build" groups="partner" >
+  <project path="build/kernel" name="kernel/build" groups="partner" revision="main-kernel-build-2023" >
     <linkfile dest="tools/bazel" src="kleaf/bazel.sh"/>
     <linkfile dest="build/build.sh" src="build.sh"/>
     <linkfile dest="build/build_abi.sh" src="build_abi.sh"/>
@@ -94,11 +94,11 @@
   <project path="prebuilts/build-tools" name="platform/prebuilts/build-tools" groups="partner" clone-depth="1" />
   <project path="prebuilts/kernel-build-tools" name="kernel/prebuilts/build-tools" groups="partner" clone-depth="1" />
   <project path="tools/mkbootimg" name="platform/system/tools/mkbootimg" groups="partner" />
-  <project path="build/bazel_common_rules" name="platform/build/bazel_common_rules" groups="partner" />
-  <project path="external/bazel-skylib" name="platform/external/bazel-skylib" groups="partner" />
+  <project path="build/bazel_common_rules" name="platform/build/bazel_common_rules" groups="partner" revision="main-kernel-build-2023"  />
+  <project path="external/bazel-skylib" name="platform/external/bazel-skylib" groups="partner" revision="main-kernel-build-2023"  />
   <project path="external/python/absl-py" name="platform/external/python/absl-py" groups="partner" />
   <project path="external/stardoc" name="platform/external/stardoc" groups="partner" />
-  <project path="prebuilts/bazel/linux-x86_64" name="platform/prebuilts/bazel/linux-x86_64" groups="partner" />
+  <project path="prebuilts/bazel/linux-x86_64" name="platform/prebuilts/bazel/linux-x86_64" groups="partner" revision="main-kernel-build-2023"  />
   <project path="prebuilts/jdk/jdk11" name="platform/prebuilts/jdk/jdk11" />
   <project path="prebuilts/ndk-r23" name="toolchain/prebuilts/ndk/r23" groups="partner" />
 </manifest>
