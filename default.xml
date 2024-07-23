@@ -16,7 +16,7 @@
     remote="aosp" sync-j="4" />
 
   <project path="aosp" name="gs-bluraviole/android_kernel_google_gs101" revision="android-gs-bluraviole-5.10-android15-beta" remote="github" clone-depth="1" />
-  <project path="private/gs-google" name="kernel_gs" groups="partner" remote="grapheneos" >
+  <project path="private/gs-google" name="gs-bluraviole/android_kernel_google_gs101" revision="android-gs-bluraviole-5.10-android15-beta" remote="github" clone-depth="1" />
     <linkfile dest="build.config" src="build.config.slider"/>
     <linkfile dest="build_slider.sh" src="build_slider.sh"/>
     <linkfile dest="build_mixed.sh" src="build_mixed.sh"/>
