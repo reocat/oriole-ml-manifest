@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-
+  
   <!-- GitHub -->
   <remote  name="github"
            fetch="https://github.com/" />
@@ -15,8 +15,8 @@
   <default revision="refs/tags/android-14.0.0_r0.101"
     remote="aosp" sync-j="4" />
 
-  <project path="aosp" name="gs-bluraviole/android_kernel_google_gs101" revision="android-gs-bluraviole-5.10-android15-beta" remote="github" clone-depth="1" />
-  <project path="private/gs-google" name="gs-bluraviole/android_kernel_google_gs101" revision="android-gs-bluraviole-5.10-android15-beta" remote="github" clone-depth="1" />
+  <project path="aosp" name="kernel_common-5.10" groups="partner" remote="grapheneos" />
+  <project path="private/gs-google" name="engstk/pxl6" groups="partner" remote="github" >
     <linkfile dest="build.config" src="build.config.slider"/>
     <linkfile dest="build_slider.sh" src="build_slider.sh"/>
     <linkfile dest="build_mixed.sh" src="build_mixed.sh"/>
