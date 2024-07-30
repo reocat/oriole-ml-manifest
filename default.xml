@@ -16,7 +16,7 @@
     remote="aosp" sync-j="4" />
 
   <project path="aosp" name="kernel_common-5.10" groups="partner" remote="grapheneos" />
-  <project path="private/gs-google" name="engstk/pxl6" groups="partner" remote="github" >
+  <project path="private/gs-google" name="engstk/pxl6" groups="partner" remote="github" revision="blu_spark-14" >
     <linkfile dest="build.config" src="build.config.slider"/>
     <linkfile dest="build_slider.sh" src="build_slider.sh"/>
     <linkfile dest="build_mixed.sh" src="build_mixed.sh"/>
