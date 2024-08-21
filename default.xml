@@ -6,7 +6,7 @@
   <remote name="hentai"
     fetch="https://gitlab.hentaios.com/hentaios-gs/"
     revision="refs/heads/Ursamoon" />
-  <default revision="refs/tags/android-14.0.0_r0.122"
+  <default revision="refs/tags/android-u-qpr3-beta-2_r0.8"
     remote="aosp" sync-j="8" />
 
   <project path="aosp" name="kernel_common" groups="partner" remote="hentai" />
