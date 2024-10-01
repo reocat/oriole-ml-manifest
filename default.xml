@@ -3,8 +3,11 @@
 
   <remote  name="aosp"
     fetch="https://android.googlesource.com/" />
-  <remote name="helluva"
+  <remote name="helluva-ssh"
     fetch="ssh://git@ssh.gitlab.hentaios.com:2052/hentaios-gs-6.x/"
+    revision="refs/heads/Ursamoon" />
+  <remote name="helluva"
+    fetch="https://gitlab.hentaios.com/hentaios-gs-6.x/"
     revision="refs/heads/Ursamoon" />
   <default revision="refs/tags/android-15-qpr1-beta-2_r0.9"
     remote="aosp" sync-j="4" />
